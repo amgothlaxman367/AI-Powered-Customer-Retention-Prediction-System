@@ -1,213 +1,760 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Customer Churn Prediction</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 30px;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        h1 {
-            text-align: center;
-            color: #333;
-        }
+    <title>AI Powered Customer Retention Prediction System</title>
 
-        form {
-            background: white;
-            width: 450px;
-            margin: auto;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray;
-        }
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 12px;
-        }
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
 
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border-radius: 5px;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 20px;
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background: #0056b3;
-        }
-
-        .result {
-            text-align: center;
-            margin-top: 20px;
-            color: green;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-    </style>
 </head>
-
 
 <body>
 
-<h1>Customer Churn Prediction</h1>
+    <!-- Animated Background -->
 
+    <div class="bg-animation">
 
-<form method="POST">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
+    </div>
 
-<label>Gender</label>
-<select name="gender">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-</select>
+    <!-- Main Container -->
 
+    <div class="main-container">
 
-<label>Partner</label>
-<select name="Partner">
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-</select>
+        <!-- Hero Section -->
 
+        <section class="hero-section">
 
-<label>Dependents</label>
-<select name="Dependents">
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-</select>
+            <!-- Left Photo -->
 
+            <div class="profile-section">
 
-<label>Phone Service</label>
-<select name="PhoneService">
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-</select>
+                <div class="profile-card">
 
+                    <img src="{{ url_for('static', filename='images/lucky_14.jpg') }}"
+                        alt="Amgoth Laxman"
+                        class="profile-image">
 
-<label>Multiple Lines</label>
-<select name="MultipleLines">
-    <option value="No phone service">No phone service</option>
-    <option value="No">No</option>
-    <option value="Yes">Yes</option>
-</select>
+                    <div class="profile-glow"></div>
 
+                </div>
 
-<label>Internet Service</label>
-<select name="InternetService">
-    <option value="DSL">DSL</option>
-    <option value="Fiber optic">Fiber optic</option>
-    <option value="No">No</option>
-</select>
+            </div>
 
+            <!-- Center Content -->
 
-<label>Online Security</label>
-<select name="OnlineSecurity">
-    <option value="No internet service">No internet service</option>
-    <option value="No">No</option>
-    <option value="Yes">Yes</option>
-</select>
+            <div class="hero-content">
 
+                <div class="badge">
 
-<label>Online Backup</label>
-<select name="OnlineBackup">
-    <option value="No internet service">No internet service</option>
-    <option value="No">No</option>
-    <option value="Yes">Yes</option>
-</select>
+                    <i class="fa-solid fa-robot"></i>
+                    AI Powered Machine Learning Project
 
+                </div>
 
-<label>Device Protection</label>
-<select name="DeviceProtection">
-    <option value="No internet service">No internet service</option>
-    <option value="No">No</option>
-    <option value="Yes">Yes</option>
-</select>
+                <h1>
 
+                    AI Powered Customer
+                    <span>Retention Prediction</span>
 
-<label>Tech Support</label>
-<select name="TechSupport">
-    <option value="No internet service">No internet service</option>
-    <option value="No">No</option>
-    <option value="Yes">Yes</option>
-</select>
+                </h1>
 
+                <h2>
 
-<label>Streaming TV</label>
-<select name="StreamingTV">
-    <option value="No internet service">No internet service</option>
-    <option value="No">No</option>
-    <option value="Yes">Yes</option>
-</select>
+                    Amgoth Laxman
 
+                </h2>
 
-<label>Streaming Movies</label>
-<select name="StreamingMovies">
-    <option value="No internet service">No internet service</option>
-    <option value="No">No</option>
-    <option value="Yes">Yes</option>
-</select>
+                <p class="designation">
 
+                    🔬 Data Scientist & ML Engineer
 
-<label>Contract</label>
-<select name="Contract">
-    <option value="Month-to-month">Month-to-month</option>
-    <option value="One year">One year</option>
-    <option value="Two year">Two year</option>
-</select>
+                </p>
 
+                <p class="email">
 
-<label>Paperless Billing</label>
-<select name="PaperlessBilling">
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-</select>
+                    <i class="fa-solid fa-envelope"></i>
 
+                    amgothlaxman367@gmail.com
 
-<label>Payment Method</label>
-<select name="PaymentMethod">
-    <option value="Credit card (automatic)">Credit card (automatic)</option>
-    <option value="Electronic check">Electronic check</option>
-    <option value="Mailed check">Mailed check</option>
-    <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
-</select>
+                </p>
 
+            </div>
 
-<label>Sim</label>
-<select name="Sim">
-    <option value="BSNL">BSNL</option>
-    <option value="Jio">Jio</option>
-    <option value="Vi">Vi</option>
-</select>
+            <!-- Right Logo -->
 
+            <div class="logo-section">
 
-<button type="submit">Predict</button>
+                <div class="logo-card">
 
+                    <img src="{{ url_for('static', filename='images/vihara tech logo.png') }}"
+                        alt="Vihara Tech Institute"
+                        class="logo-image">
 
-</form>
+                </div>
 
+            </div>
 
-{% if prediction %}
-<div class="result">
-    Prediction : {{ prediction }}
-</div>
-{% endif %}
+        </section>
 
+        <!-- Stats Section -->
+
+        <section class="stats-section">
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <h3>Machine Learning</h3>
+
+                <p>AI Prediction Model</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <h3>Customer Analytics</h3>
+
+                <p>Retention Insights</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h3>Smart Prediction</h3>
+
+                <p>High Accuracy Results</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <h3>Real Time</h3>
+
+                <p>Instant Prediction</p>
+
+            </div>
+
+        </section>
+
+        <!-- Form Section -->
+
+        <section class="prediction-section">
+
+            <div class="glass-card">
+
+                <div class="section-title">
+
+                    <i class="fa-solid fa-microchip"></i>
+
+                    <h2>Customer Information</h2>
+
+                </div>
+
+                <form method="POST" id="predictionForm">
+
+                    <div class="form-grid">
+
+                        <!-- Gender -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-user"></i>
+
+                                Gender
+
+                            </label>
+
+                            <select name="gender" required>
+
+                                <option value="">Select Gender</option>
+
+                                <option value="Male">Male</option>
+
+                                <option value="Female">Female</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Partner -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-heart"></i>
+
+                                Partner
+
+                            </label>
+
+                            <select name="Partner" required>
+
+                                <option value="">Select Partner Status</option>
+
+                                <option value="Yes">Yes</option>
+
+                                <option value="No">No</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Dependents -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-children"></i>
+
+                                Dependents
+
+                            </label>
+
+                            <select name="Dependents" required>
+
+                                <option value="">Select</option>
+
+                                <option value="Yes">Yes</option>
+
+                                <option value="No">No</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Phone Service -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                Phone Service
+
+                            </label>
+
+                            <select name="PhoneService" required>
+
+                                <option value="">Select</option>
+
+                                <option value="Yes">Yes</option>
+
+                                <option value="No">No</option>
+
+                            </select>
+
+                        </div>
+
+                                                <!-- Multiple Lines -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-network-wired"></i>
+
+                                Multiple Lines
+
+                            </label>
+
+                            <select name="MultipleLines" required>
+
+                                <option value="">Select</option>
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No phone service">No Phone Service</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Internet Service -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-wifi"></i>
+
+                                Internet Service
+
+                            </label>
+
+                            <select name="InternetService" required>
+
+                                <option value="">Select</option>
+                                <option value="DSL">DSL</option>
+                                <option value="Fiber optic">Fiber Optic</option>
+                                <option value="No">No</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Online Security -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-shield-halved"></i>
+
+                                Online Security
+
+                            </label>
+
+                            <select name="OnlineSecurity" required>
+
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No Internet Service</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Online Backup -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                                Online Backup
+
+                            </label>
+
+                            <select name="OnlineBackup" required>
+
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No Internet Service</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Device Protection -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                Device Protection
+
+                            </label>
+
+                            <select name="DeviceProtection" required>
+
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No Internet Service</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Tech Support -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-headset"></i>
+
+                                Tech Support
+
+                            </label>
+
+                            <select name="TechSupport" required>
+
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No Internet Service</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Streaming TV -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-tv"></i>
+
+                                Streaming TV
+
+                            </label>
+
+                            <select name="StreamingTV" required>
+
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No Internet Service</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Streaming Movies -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-film"></i>
+
+                                Streaming Movies
+
+                            </label>
+
+                            <select name="StreamingMovies" required>
+
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No Internet Service</option>
+
+                            </select>
+
+                        </div>
+
+                                                <!-- Contract -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-file-contract"></i>
+
+                                Contract
+
+                            </label>
+
+                            <select name="Contract" required>
+
+                                <option value="">Select Contract</option>
+                                <option value="Month-to-month">Month-to-Month</option>
+                                <option value="One year">One Year</option>
+                                <option value="Two year">Two Year</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Paperless Billing -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-file-invoice"></i>
+
+                                Paperless Billing
+
+                            </label>
+
+                            <select name="PaperlessBilling" required>
+
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Payment Method -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-credit-card"></i>
+
+                                Payment Method
+
+                            </label>
+
+                            <select name="PaymentMethod" required>
+
+                                <option value="">Select Payment Method</option>
+                                <option value="Bank transfer (automatic)">Bank Transfer (Automatic)</option>
+                                <option value="Credit card (automatic)">Credit Card (Automatic)</option>
+                                <option value="Electronic check">Electronic Check</option>
+                                <option value="Mailed check">Mailed Check</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- SIM Provider -->
+
+                        <div class="input-group">
+
+                            <label>
+
+                                <i class="fa-solid fa-sim-card"></i>
+
+                                SIM Provider
+
+                            </label>
+
+                            <select name="Sim" required>
+
+                                <option value="">Select SIM</option>
+                                <option value="Airtel">Airtel</option>
+                                <option value="BSNL">BSNL</option>
+                                <option value="Jio">Jio</option>
+                                <option value="Vi">Vi</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Predict Button -->
+
+                    <div class="button-section">
+
+                        <button type="submit" class="predict-btn">
+
+                            <i class="fa-solid fa-rocket"></i>
+
+                            Predict Customer Retention
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- AI Information Section -->
+
+        <section class="ai-section">
+
+            <div class="ai-card">
+
+                <div class="ai-icon">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                </div>
+
+                <h2>Artificial Intelligence Prediction</h2>
+
+                <p>
+
+                    This intelligent system uses a Machine Learning model
+                    trained on customer behavior data to predict whether
+                    a customer is likely to stay with the company or churn.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Prediction Popup -->
+
+        {% if prediction %}
+
+        <div id="predictionModal" class="popup">
+
+            <div class="popup-content">
+
+                <span class="close-popup">&times;</span>
+
+                <div class="popup-icon">
+
+                    {% if "Stay" in prediction %}
+
+                    <i class="fa-solid fa-circle-check success-icon"></i>
+
+                    {% elif "Churn" in prediction %}
+
+                    <i class="fa-solid fa-circle-xmark danger-icon"></i>
+
+                    {% else %}
+
+                    <i class="fa-solid fa-circle-info info-icon"></i>
+
+                    {% endif %}
+
+                </div>
+
+                <h2>Prediction Result</h2>
+
+                <h3>{{ prediction }}</h3>
+
+                <button class="ok-btn" onclick="closePopup()">
+
+                    OK
+
+                </button>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+                <!-- Footer -->
+
+        <footer class="footer">
+
+            <div class="footer-content">
+
+                <h2>
+
+                    Amgoth Laxman
+
+                </h2>
+
+                <p>
+
+                    🔬 Data Scientist & ML Engineer
+
+                </p>
+
+                <p>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    amgothlaxman367@gmail.com
+
+                </p>
+
+                <div class="social-icons">
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-linkedin"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-solid fa-globe"></i>
+
+                    </a>
+
+                </div>
+
+                <p class="copyright">
+
+                    © 2026 AI Powered Customer Retention Prediction System
+
+                </p>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+    <!-- JavaScript -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    {% if prediction %}
+
+    <script>
+
+        const popup = document.getElementById("predictionModal");
+
+        if (popup) {
+
+            popup.style.display = "flex";
+
+        }
+
+        function closePopup() {
+
+            popup.style.display = "none";
+
+        }
+
+        const closeBtn = document.querySelector(".close-popup");
+
+        if (closeBtn) {
+
+            closeBtn.onclick = function () {
+
+                popup.style.display = "none";
+
+            }
+
+        }
+
+        window.onclick = function(event) {
+
+            if (event.target == popup) {
+
+                popup.style.display = "none";
+
+            }
+
+        }
+
+    </script>
+
+    {% endif %}
 
 </body>
+
 </html>
